@@ -1,0 +1,24 @@
+[
+  {
+  "maxInstances":1,
+  "browserName": "Chrome",
+  "platformName": "Windows",
+  "platformVersion": "10",
+  "browserVersion": "71",
+  "resolution": "1280x1024",
+  "location": "US East",
+  "repoLocationKey": "desktop"
+},
+  {
+    "maxInstances":1,
+    "browserName": "Chrome",
+    "platformName": "Android",
+    "repoLocationKey": "desktop"
+  },
+  {
+    "maxInstances":1,
+    "browserName": "Safari",
+    "platformName": "iOS",
+    "repoLocationKey": "desktop"
+  }
+]

@@ -1,0 +1,14 @@
+[
+  {
+    "maxInstances":1,
+    "browserName": "Chrome",
+    "platformName": "Android",
+    "repoLocationKey": "android"
+  },
+  {
+    "maxInstances":1,
+    "browserName": "Safari",
+    "platformName": "iOS",
+    "repoLocationKey": "ios"
+  }
+]

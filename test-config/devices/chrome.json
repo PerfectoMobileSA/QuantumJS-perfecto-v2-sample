@@ -1,0 +1,13 @@
+[
+  {
+    "perfecto:options":{
+      "platformVersion": "11",
+      "resolution": "1280x1024",
+      "location": "US East"
+    },
+    "maxInstances":3,
+    "browserName": "Chrome",
+    "platformName": "Windows",
+    "browserVersion": "119"
+  }
+]
