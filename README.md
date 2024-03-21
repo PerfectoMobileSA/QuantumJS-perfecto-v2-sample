@@ -19,6 +19,7 @@ Set following Environment variables:
         BRANCH_NAME
         HOST_PORT
         STEP_TIMEOUT
+        TUNNEL_ID
         
     Execute test:
         npm run wdio

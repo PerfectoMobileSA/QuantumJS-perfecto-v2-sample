@@ -7,12 +7,20 @@ const __dirname = path.dirname(__filename);
 
 export default class Page {
 
-    constructor(pageName) {
+    constructor(pageName,driverName="Default") {
 
         this.pageName = pageName || this.getPageName();
         this.siteHostPrefix = '';
+        this.driverName = driverName;
+
+        try {
+            this.driverInstance = browser.getInstance(this.driverName);
+        } catch (error) {
+            this.driverInstance =  browser;
+        }
         
-        let capabilities = browser["capabilities"];
+        let capabilities = this.driverInstance["capabilities"];
+
         this.repoLocationKey = capabilities.repoLocationKey || capabilities.platformName;
         this.baseLocatorsPath = '../page-locators';
         
@@ -30,24 +38,24 @@ export default class Page {
     }
 
     async open (path) {
-        await browser.url(path);
+        await this.driverInstance.url(path);
     }
 
     // load page
     async getPage() {
         
-        await browser.url(this.siteHostPrefix)
+        await this.driverInstance.url(this.siteHostPrefix)
         
         await this.init();
 
-        await $(this.loc.loadCheck).waitForExist({
+        await this.driverInstance.$(this.loc.loadCheck).waitForExist({
             timeout: 5000
         });
         
     }
 
     async waitForLoaded() {
-        await $(this.loc.loadCheck).waitForExist({
+        await this.driverInstance.$(this.loc.loadCheck).waitForExist({
             timeout: 5000
         });
         // await browser.waitForExist(this.loc.loadCheck,5000)

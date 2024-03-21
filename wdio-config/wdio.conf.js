@@ -6,15 +6,45 @@ async function getDesiredCapabilities(){
 
     const capsFilePath = `./test-config/devices/${process.env.E2E_DEVICE || "chrome.json"}`;
 
-    let rawdata = fs.readFileSync(capsFilePath);
+    let rawdata = fs.readFileSync(capsFilePath,'utf-8');
 
     let desiredCapabilities = await JSON.parse(rawdata);
 
-    desiredCapabilities.forEach(desiredCapability => {
+    let isArray = Array.isArray(desiredCapabilities);
+
+    if(!isArray){
+
         
-        let perfectoOptions = desiredCapability["perfecto:options"];
-        desiredCapability["perfecto:options"]["securityToken"] = process.env.SECURITY_TOKEN || perfectoOptions["securityToken"]||"";
-    });
+        Object.keys(desiredCapabilities).forEach(key => {
+            let desiredCapability = desiredCapabilities[key]["capabilities"];
+            console.log(desiredCapability);
+            let perfectoOptions = desiredCapability["perfecto:options"] || {};
+
+            perfectoOptions["securityToken"] = process.env.SECURITY_TOKEN || perfectoOptions["securityToken"]||"";
+            if(process.env.TUNNEL_ID || perfectoOptions["tunnelId"]){
+                perfectoOptions["tunnelId"] = process.env.TUNNEL_ID || perfectoOptions["tunnelId"];
+            }
+        });
+        
+    }else{
+
+        for(let key in desiredCapabilities){
+
+            let desiredCapability = desiredCapabilities[key]["capabilities"];
+            let perfectoOptions = desiredCapability["perfecto:options"] || {};
+            
+            perfectoOptions["securityToken"] = process.env.SECURITY_TOKEN || perfectoOptions["securityToken"]||"";
+    
+            if(process.env.TUNNEL_ID || perfectoOptions["tunnelId"]){
+                perfectoOptions["tunnelId"] = process.env.TUNNEL_ID || perfectoOptions["tunnelId"];
+            }
+    
+        }
+        
+    }
+
+    
+   
     return desiredCapabilities;
 }
 
@@ -43,7 +73,7 @@ export const config = {
         process.env.SCENARIO_PATH || '../src/features/**/*.feature'
     ],
 
-    services:[['perfecto-v-3',{
+    services:[['perfecto.v2',{
         // 
         // "custom_fields":{
         //     "field_1":"value_1"
@@ -54,6 +84,8 @@ export const config = {
         // "implicit_timeout_ms" : "2000",
         // 
         // "explicit_timeout_ms": "2000",
+
+        // "tunnelId": "<TUNNEL_ID>"
 
         "failure_reasons" : failure_reason
     }]],

@@ -1,0 +1,26 @@
+{
+    "Default": {
+        "capabilities": {
+            "browserName": "Chrome",
+            "platformName": "Windows",
+            "browserVersion": "119",
+            "perfecto:options":{
+                "platformVersion": "11",
+                "resolution": "1280x1024",
+                "location": "US East"
+              }
+        }
+    },
+    "userA": {
+        "capabilities": {
+            "browserName": "Chrome",
+            "platformName": "Windows",
+            "browserVersion": "119",
+            "perfecto:options":{
+                "platformVersion": "11",
+                "resolution": "1280x1024",
+                "location": "US East"
+              }
+        }
+    }
+}
