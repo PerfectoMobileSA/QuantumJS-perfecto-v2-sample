@@ -4,8 +4,8 @@ import { assert } from 'chai';
 
 export default class GooglePage extends Page {
 
-    constructor() {
-        super('google');
+    constructor(pageName="Default") {
+        super('google',pageName);
         this.siteHostPrefix = "http://google.com"
     }
 
@@ -14,25 +14,25 @@ export default class GooglePage extends Page {
     }
 
     async wrongSearch(text){
-        let searchBox = await $(this.loc.searchTextBoxWrong);
+        let searchBox = await this.driverInstance.$(this.loc.searchTextBoxWrong);
         await searchBox.clearValue();
     }
 
     async search(text) {
 
-        let searchBox = await $(this.loc.searchTextBox);
+        let searchBox = await this.driverInstance.$(this.loc.searchTextBox);
         await searchBox.clearValue();
         await searchBox.setValue(text);
  
-        await browser.waitForEnabled(this.loc.searchBtn,5000);
+        await this.driverInstance.$(this.loc.searchBtn).waitForEnabled({timeout: 5000});
 
-        let searchBtn = await $(this.loc.searchBtn);
+        let searchBtn = await this.driverInstance.$(this.loc.searchBtn);
         await searchBtn.click();
     }
 
     async searchResult(result) {
 
-        let resultElem = await $(`*=${result}`);
+        let resultElem = await this.driverInstance.$(`*=${result}`);
         const isResult = await resultElem.waitForDisplayed({timeout:3000, timeoutMsg: `Search result ${result} not visible`});
         // assert.equal(isResult, true, `Search result ${result} not visible`);
     }

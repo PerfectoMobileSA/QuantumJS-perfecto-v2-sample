@@ -4,7 +4,7 @@ import GooglePage from '../pages/google.page.js';
 import { When, Then } from '@wdio/cucumber-framework';
 
 When(/^I search for "([^"]*)"$/, async function (text) {
-    let currentPage = new GooglePage();
+    let currentPage = new GooglePage("Default");
     await currentPage.init_locators();
     return await currentPage.search(text);
 });
