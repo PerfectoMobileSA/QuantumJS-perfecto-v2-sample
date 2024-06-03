@@ -1,0 +1,14 @@
+[
+  {
+    "perfecto:options":{
+      "model":"iPhone.*",
+      "enableAppiumBehavior": true,
+      "useAppiumForHybrid": true
+    },
+    "maxInstances":1,
+    "browserName": "Safari",
+    "platformName": "iOS"
+    
+  }
+]
+

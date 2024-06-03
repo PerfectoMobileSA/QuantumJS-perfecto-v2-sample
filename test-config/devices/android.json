@@ -1,10 +1,16 @@
 [
   {
+    "perfecto:options":{
+      
+      "enableAppiumBehavior": true,
+      "useAppiumForHybrid": false,
+      "model":"Galaxy S22.*",
+      "platformVersion":"12"
+    },
     "maxInstances":1,
     "browserName": "Chrome",
-    "platformName": "Android",
-    "model":"Galaxy S6",
-    "repoLocationKey": "android"
+    "platformName": "Android"
+    
   }
 ]
 

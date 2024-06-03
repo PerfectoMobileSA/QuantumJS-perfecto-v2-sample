@@ -14,7 +14,6 @@ async function getDesiredCapabilities(){
 
     if(!isArray){
 
-        
         Object.keys(desiredCapabilities).forEach(key => {
             let desiredCapability = desiredCapabilities[key]["capabilities"];
             console.log(desiredCapability);
@@ -30,7 +29,8 @@ async function getDesiredCapabilities(){
 
         for(let key in desiredCapabilities){
 
-            let desiredCapability = desiredCapabilities[key]["capabilities"];
+            let desiredCapability = desiredCapabilities[key];
+
             let perfectoOptions = desiredCapability["perfecto:options"] || {};
             
             perfectoOptions["securityToken"] = process.env.SECURITY_TOKEN || perfectoOptions["securityToken"]||"";
@@ -42,9 +42,6 @@ async function getDesiredCapabilities(){
         }
         
     }
-
-    
-   
     return desiredCapabilities;
 }
 
@@ -65,7 +62,7 @@ export const config = {
     // The path of the spec files will be resolved relative from the directory of
     // of the config file unless it's absolute.
     //
-    hostname:`${process.env.CLOUD_NAME || "sia"}.perfectomobile.com`,
+    hostname:`${process.env.CLOUD_NAME || "demo"}.perfectomobile.com`,
     path: '/nexperience/perfectomobile/wd/hub',
     port: parseInt(process.env.HOST_PORT || "80"),
 
@@ -73,7 +70,7 @@ export const config = {
         process.env.SCENARIO_PATH || '../src/features/**/*.feature'
     ],
 
-    services:[['perfecto.v2',{
+    services:[['perfecto-ps.v2',{
         // 
         // "custom_fields":{
         //     "field_1":"value_1"

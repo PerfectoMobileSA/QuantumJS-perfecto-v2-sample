@@ -29,12 +29,15 @@
      */
 
 import {  Then } from '@wdio/cucumber-framework';
+import { assert } from 'chai';
 
 Then(/^I start application by name "([^"]*)"$/, async function (name) {
+
+    console.log(name);
     await browser.perfStartApp('name',name)
     // Change to app context after open app
-    await browser.context('NATIVE_APP')
-    console.log('browser.context', await browser.context())
+    await browser.switchContext('NATIVE_APP')
+    console.log('browser.context', await browser.getContext())
 })
 
 
@@ -48,7 +51,7 @@ Then(/^I start application by id "([^"]*)"$/, async function (id) {
 
     await browser.perfStartApp('identifier', id)
     // Change to app context after open app
-    await browser.context('NATIVE_APP')
+    await browser.switchContext('NATIVE_APP')
 })
 
 /**
@@ -220,7 +223,9 @@ Then(/^application orientation must be "([^"]*)"$/, async function (orientation)
  * @see <a href="https://github.com/PerfectoCode/Quantum/wiki/Object%20Repository">Object Repository</a>
  */
 Then(/^I click on "([^"]*)"$/, async function (locator) {
-    await $(locator).click();
+
+    let driverInstance = await browser.getWebDriver();
+    await driverInstance.$(locator).click();
 })
 
 /**
@@ -232,7 +237,8 @@ Then(/^I click on "([^"]*)"$/, async function (locator) {
  * @see <a href="https://github.com/PerfectoCode/Quantum/wiki/Object%20Repository">Object Repository</a>
  */
 Then(/^I clear "([^"]*)"$/, async function (locator) {
-    await $(locator).clearElement();
+    let driverInstance = await browser.getWebDriver();
+    await driverInstance.$(locator).clearElement();
 })
 
 /**
@@ -245,7 +251,9 @@ Then(/^I clear "([^"]*)"$/, async function (locator) {
  * @see <a href="https://github.com/PerfectoCode/Quantum/wiki/Object%20Repository">Object Repository</a>
  */
 Then(/^I enter "([^"]*)" to "([^"]*)"$/, async function (text,locator) {
-    await $(locator).keys(text);
+
+    let driverInstance = await browser.getWebDriver();
+    await driverInstance.$(locator).keys(text);
 })
 
 
@@ -257,7 +265,8 @@ Then(/^I enter "([^"]*)" to "([^"]*)"$/, async function (text,locator) {
  */
 // TODO verify????
 Then(/^"([^"]*)" should exist$/, async function (locator) {
-    await $(locator).isExisting();
+    let driverInstance = await browser.getWebDriver();
+    await driverInstance.$(locator).isExisting();
 })
 
 /**
@@ -318,7 +327,7 @@ Then(/^I should see image "([^"]*)" in "(\d+)" seconds with threshold "(\d+)" an
  * @see <a href="https://community.perfectomobile.com/series/20208/posts/1072062">Switching contexts</a>
  */
 Then(/^I switch to "([^"]*)" context$/, async function (context) {
-    await browser.context(context);
+    await browser.switchContext(context);
 })
 
 
@@ -328,7 +337,7 @@ Then(/^I switch to "([^"]*)" context$/, async function (context) {
  * @see <a href="https://community.perfectomobile.com/series/20208/posts/1072062">Switching contexts</a>
  */
 Then(/^I switch to native context$/, async function () {
-    await browser.context("NATIVE_APP");
+    await browser.switchContext("NATIVE_APP");
 })
 
 /**
@@ -337,7 +346,7 @@ Then(/^I switch to native context$/, async function () {
  * @see <a href="https://community.perfectomobile.com/series/20208/posts/1072062">Switching contexts</a>
  */
 Then(/^I switch to webview context$/, async function () {
-    await browser.context("WEBVIEW");
+    await browser.switchContext("WEBVIEW");
 })
 
 /**
@@ -346,7 +355,7 @@ Then(/^I switch to webview context$/, async function () {
  * @see <a href="https://community.perfectomobile.com/series/20208/posts/1072062">Switching contexts</a>
  */
 Then(/^I switch to visual context$/, async function () {
-    await browser.context("VISUAL");
+    await browser.switchContext("VISUAL");
 })
 
 
