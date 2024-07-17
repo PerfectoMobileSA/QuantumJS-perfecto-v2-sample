@@ -225,11 +225,6 @@ export const config = {
      * @param {Array.<Object>} capabilities list of capabilities details
      */
     // onPrepare: function (config, capabilities) {
-
-    //     // capabilities.forEach(capability => {
-    //     //     var perfectoOptions = capability["perfecto:options"];
-    //     //     perfectoOptions["securityToken"] = "eyJhbGciOiJIUzI1NiIsInR5cCIgOiAiSldUIiwia2lkIiA6ICIyODhhNDIyNS1jOTE1LTQwZDctOTc2YS04MDhiMWE3YTFmODYifQ.eyJpYXQiOjE3MDAyMzEzOTIsImp0aSI6IjEyNWQ2ZmM1LTFiNmYtNDViZS05Njg1LTIzMGFmODZkYzI3ZSIsImlzcyI6Imh0dHBzOi8vYXV0aC5wZXJmZWN0b21vYmlsZS5jb20vYXV0aC9yZWFsbXMvcHMtcGVyZmVjdG9tb2JpbGUtY29tIiwiYXVkIjoiaHR0cHM6Ly9hdXRoLnBlcmZlY3RvbW9iaWxlLmNvbS9hdXRoL3JlYWxtcy9wcy1wZXJmZWN0b21vYmlsZS1jb20iLCJzdWIiOiI2OWJmOGEwYS05NTZkLTQyYjYtYjZhOC02ODIyMjM3NWU0MGQiLCJ0eXAiOiJPZmZsaW5lIiwiYXpwIjoib2ZmbGluZS10b2tlbi1nZW5lcmF0b3IiLCJub25jZSI6Ijc0ZjMyNjBhLWM0YjctNDVkNi04MGVmLTY5NTllOTI2NjY0MCIsInNlc3Npb25fc3RhdGUiOiJjZjVmNjk4OS04ODM1LTQzZmUtOWJmNy04NWMxMGY1M2Y1YjgiLCJzY29wZSI6Im9wZW5pZCBvZmZsaW5lX2FjY2VzcyJ9.qk88E8VUR-ffNjM6rqol9Iw1pQGuzC4D3ooDmn38mcE";
-    //     // });
     // },
     /**
      * Gets executed before a worker process is spawned and can be used to initialize specific service
