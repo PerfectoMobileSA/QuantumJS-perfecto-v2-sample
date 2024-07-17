@@ -70,7 +70,7 @@ export const config = {
         process.env.SCENARIO_PATH || '../src/features/**/*.feature'
     ],
 
-    services:[['perfecto-ps.v2',{
+    services:[['perfecto.v2',{
         // 
         // "custom_fields":{
         //     "field_1":"value_1"

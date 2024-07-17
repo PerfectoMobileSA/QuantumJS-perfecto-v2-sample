@@ -8,6 +8,6 @@
     "maxInstances":3,
     "browserName": "Chrome",
     "platformName": "Windows",
-    "browserVersion": "119"
+    "browserVersion": "latest"
   }
 ]
