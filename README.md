@@ -1,6 +1,8 @@
 
-Set following Environment variables:
+Sample Applications:
+Download the sample applications used in this project can be downloaded here - https://github.com/PerfectoMobileSA/Samples/tree/master/sample_apps
 
+Set following Environment variables:
     Mandatory:
         CLOUD_NAME
         E2E_DEVICE

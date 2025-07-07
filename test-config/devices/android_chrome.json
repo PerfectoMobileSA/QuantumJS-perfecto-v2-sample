@@ -1,0 +1,13 @@
+[
+  {
+    "perfecto:options":{
+      "useAppiumForWeb": true,
+      "model":"Galaxy S.*|LG.*",
+      "automationName":"PerfectoMobile",
+      "browserName": "Chrome",
+      "platformName": "Android"
+    },
+    "maxInstances":1
+  }
+]
+

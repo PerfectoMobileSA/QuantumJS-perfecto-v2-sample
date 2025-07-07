@@ -1,0 +1,72 @@
+[
+  {
+    "perfecto:options":{
+      "useAppiumForWeb": true,
+      "model":"Galaxy S.*|LG.*",
+      "automationName":"PerfectoMobile",
+      "browserName": "Chrome",
+      "platformName": "Android",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":1
+  },
+  {
+    "perfecto:options":{
+      "useAppiumForWeb": true,
+      "model":"iPhone.*",
+      "automationName":"PerfectoMobile",
+      "browserName": "Safari",
+      "platformName": "iOS",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":1
+  },
+  {
+    "perfecto:options":{
+      "platformVersion": "11",
+      "resolution": "1280x1024",
+      "location": "US East",
+      "browserName": "Chrome",
+      "platformName": "Windows",
+      "browserVersion": "latest",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":3
+  },
+  {
+    "perfecto:options":{
+      "platformVersion": "11",
+      "resolution": "1280x1024",
+      "location": "US East",
+      "browserName": "Edge",
+      "platformName": "Windows",
+      "browserVersion": "latest",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":3
+  },
+  {
+    "perfecto:options":{
+      "platformVersion": "11",
+      "resolution": "1280x1024",
+      "location": "US East",
+      "browserName": "Firefox",
+      "platformName": "Windows",
+      "browserVersion": "latest",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":3
+  },
+  {
+    "perfecto:options":{
+      "platformVersion": "macOS Monterey",
+      "resolution": "800x600",
+      "location": "NA-US-BOS",
+      "browserName": "Safari",
+      "platformName": "Mac",
+      "browserVersion": "15",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":3
+  }
+]

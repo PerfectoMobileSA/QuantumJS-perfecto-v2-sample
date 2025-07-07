@@ -89,7 +89,7 @@ export default class Page {
         }
         else {
             if (_.isUndefined(commonLoc)) {
-                return platformLoc
+                return platformLoc.default
             }
 
             const mergeLoc = _.merge(commonLoc.default, platformLoc.default);
