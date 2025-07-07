@@ -1,6 +1,6 @@
 
 Sample Applications:
-Download the sample applications used in this project can be downloaded here - https://github.com/PerfectoMobileSA/Samples/tree/master/sample_apps
+Sample mobile applications used in this project can be downloaded from here - https://github.com/PerfectoMobileSA/Samples/tree/master/sample_apps
 
 Set following Environment variables:
     Mandatory:
