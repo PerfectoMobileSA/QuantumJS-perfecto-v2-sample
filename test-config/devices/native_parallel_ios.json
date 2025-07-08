@@ -1,0 +1,32 @@
+[
+  {
+    "perfecto:options":{
+      "enableAppiumBehavior": true,
+      "platformName": "iOS",
+      "model":"iPhone.*",
+      "automationName":"Appium",
+      "app": "PUBLIC:ExpenseTracker/Native/InvoiceApp1.0.ipa",
+      "appPackage": "io.perfecto.expense.tracker",
+      "appiumVersion": "latest",
+      "autoLaunch": true,
+      "iOSResign": true,
+      "repoLocationKey": "ios"
+    },
+    "maxInstances":1
+  },
+  {
+    "perfecto:options":{
+      "enableAppiumBehavior": true,
+      "platformName": "iOS",
+      "model":"iPhone.*",
+      "automationName":"Appium",
+      "app": "PUBLIC:ExpenseTracker/Native/InvoiceApp1.0.ipa",
+      "appPackage": "io.perfecto.expense.tracker",
+      "appiumVersion": "latest",
+      "autoLaunch": true,
+      "iOSResign": true,
+      "repoLocationKey": "ios"
+    },
+    "maxInstances":1
+  }
+]

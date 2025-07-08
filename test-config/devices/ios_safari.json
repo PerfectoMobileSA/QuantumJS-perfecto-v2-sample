@@ -1,0 +1,15 @@
+[
+  {
+    "perfecto:options":{
+      "useAppiumForWeb": true,
+      "model":"iPhone.*",
+      "automationName":"PerfectoMobile",
+      "browserName": "Safari",
+      "platformName": "iOS",
+      "repoLocationKey": "desktop"
+
+    },
+    "maxInstances":1
+  }
+]
+

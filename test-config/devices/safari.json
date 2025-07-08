@@ -1,0 +1,14 @@
+[
+  {
+    "perfecto:options":{
+      "platformVersion": "macOS Monterey",
+      "resolution": "800x600",
+      "location": "NA-US-BOS",
+      "browserName": "Safari",
+      "platformName": "Mac",
+      "browserVersion": "15",
+      "repoLocationKey": "desktop"
+    },
+    "maxInstances":3
+  }
+]

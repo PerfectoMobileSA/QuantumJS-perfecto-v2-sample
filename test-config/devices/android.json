@@ -1,16 +1,17 @@
 [
   {
     "perfecto:options":{
-      
       "enableAppiumBehavior": true,
-      "useAppiumForHybrid": false,
-      "model":"Galaxy S22.*",
-      "platformVersion":"12"
+      "model":"Galaxy S.*|LG.*",
+      "automationName":"Appium",
+      "app": "PUBLIC:ExpenseTracker/Native/ExpenseAppVer1.3.apk",
+      "appPackage": "io.perfecto.expense.tracker",
+      "platformName": "Android",
+      "appiumVersion": "latest",
+      "autoLaunch": true,
+      "repoLocationKey": "android"
     },
-    "maxInstances":1,
-    "browserName": "Chrome",
-    "platformName": "Android"
-    
+    "maxInstances":1
   }
 ]
 

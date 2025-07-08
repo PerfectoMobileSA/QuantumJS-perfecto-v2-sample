@@ -1,14 +1,17 @@
 [
   {
     "perfecto:options":{
-      "model":"iPhone.*",
       "enableAppiumBehavior": true,
-      "useAppiumForHybrid": true
+      "platformName": "iOS",
+      "model":"iPhone.*",
+      "automationName":"Appium",
+      "app": "PUBLIC:ExpenseTracker/Native/InvoiceApp1.0.ipa",
+      "bundleId": "io.perfecto.expense.tracker",
+      "appiumVersion": "latest",
+      "autoLaunch": true,
+      "iOSResign": true,
+      "repoLocationKey": "ios"
     },
-    "maxInstances":1,
-    "browserName": "Safari",
-    "platformName": "iOS"
-    
+    "maxInstances":3
   }
 ]
-

@@ -1,3 +1,8 @@
+import chalk from 'chalk';
+import boxen from 'boxen';
+
+checkRequiredEnvVars();
+
 import * as chai from "chai";
 import fs from "fs";
 import failure_reason from "../src/support/failure_reason.js";
@@ -19,6 +24,9 @@ async function getDesiredCapabilities(){
             console.log(desiredCapability);
             let perfectoOptions = desiredCapability["perfecto:options"] || {};
 
+            //delte repoLocationKey from the given input as it is not necessary to open the device/browser
+            delete perfectoOptions.repoLocationKey;
+
             perfectoOptions["securityToken"] = process.env.SECURITY_TOKEN || perfectoOptions["securityToken"]||"";
             if(process.env.TUNNEL_ID || perfectoOptions["tunnelId"]){
                 perfectoOptions["tunnelId"] = process.env.TUNNEL_ID || perfectoOptions["tunnelId"];
@@ -33,6 +41,9 @@ async function getDesiredCapabilities(){
 
             let perfectoOptions = desiredCapability["perfecto:options"] || {};
             
+            //delte repoLocationKey from the given input as it is not necessary to open the device/browser
+            delete perfectoOptions.repoLocationKey;
+
             perfectoOptions["securityToken"] = process.env.SECURITY_TOKEN || perfectoOptions["securityToken"]||"";
     
             if(process.env.TUNNEL_ID || perfectoOptions["tunnelId"]){
@@ -44,6 +55,7 @@ async function getDesiredCapabilities(){
     }
     return desiredCapabilities;
 }
+
 
 export const config = {
     
@@ -204,7 +216,7 @@ export const config = {
         // <boolean> fail if there are any undefined or pending steps
         strict: false,
         // <string> (expression) only execute the features or scenarios with tags matching the expression
-        tags: '@WebSearch',
+        tags: process.env.CUCUMBER_TAGS_LIST || '@demobank',
         // <number> timeout for step definitions
         timeout: process.env.STEP_TIMEOUT||900000,
         // <boolean> Enable this config to treat undefined definitions as warnings.
@@ -398,4 +410,43 @@ async function init_framework(cloud_name,project_name){
     global.CONFIGURATION_MANAGER = new Configurations(cloud_name);
     var tags = await global.CONFIGURATION_MANAGER.getTags();
     var caps = await global.CONFIGURATION_MANAGER.getDesiredCapabilities();
+}
+
+async function checkRequiredEnvVars(){
+    const requiredEnvVars = ['SECURITY_TOKEN', 'E2E_DEVICE', 'CLOUD_NAME'];
+    const missingVars = requiredEnvVars.filter((key) => !process.env[key]);
+
+    if (missingVars.length > 0) {
+        const missingList = missingVars
+            .map((v) => `${chalk.red('✘')} ${chalk.yellow(v)} is not set`)
+            .join('\n');
+
+        const hintCommand = `
+            ${chalk.green('export SECURITY_TOKEN=xyz')}
+            ${chalk.green('export E2E_DEVICE=chrome.json')}
+            ${chalk.green('export CLOUD_NAME=demo')}`;
+
+    const message = `
+    ${chalk.red.bold('❌ MISSING REQUIRED ENVIRONMENT VARIABLES')}
+
+    ${missingList}
+
+    ${chalk.gray('These are required for the test to run properly.')}
+
+    ${chalk.cyan.bold('💡 Set them like this:')}
+
+    ${hintCommand}
+    `.trim();
+
+        console.log(boxen(message, {
+            padding: 1,
+            margin: 1,
+            borderStyle: 'round',
+            borderColor: 'red',
+            backgroundColor: '#1e1e1e'
+        }));
+
+        process.exit(1);
+    }
+
 }

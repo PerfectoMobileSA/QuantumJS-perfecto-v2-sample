@@ -3,7 +3,7 @@
         "capabilities": {
             "browserName": "Chrome",
             "platformName": "Windows",
-            "browserVersion": "119",
+            "browserVersion": "latest",
             "perfecto:options":{
                 "platformVersion": "11",
                 "resolution": "1280x1024",
@@ -15,7 +15,7 @@
         "capabilities": {
             "browserName": "Chrome",
             "platformName": "Windows",
-            "browserVersion": "119",
+            "browserVersion": "latest",
             "perfecto:options":{
                 "platformVersion": "11",
                 "resolution": "1280x1024",
